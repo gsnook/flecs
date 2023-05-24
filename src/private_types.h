@@ -639,7 +639,9 @@ struct ecs_world_t {
     ecs_os_mutex_t sync_mutex;   /* Mutex for job_cond */
     int32_t workers_running;     /* Number of threads running */
     int32_t workers_waiting;     /* Number of workers waiting on sync */
-
+    ecs_os_api_thread_new_t task_worker_new; /* override to create task workers. 0= unused */
+    ecs_os_api_thread_join_t task_worker_join; /* override to join task workers. 0= unused */
+        
     /* -- Time management -- */
     ecs_time_t world_start_time; /* Timestamp of simulation start */
     ecs_time_t frame_start_time; /* Timestamp of frame start */

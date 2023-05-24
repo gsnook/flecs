@@ -88,4 +88,16 @@ void set_threads(int32_t threads) const;
  */
 int32_t get_threads() const;
 
+/** Set number of task threads.
+ * @see ecs_set_task_threads
+ */
+void set_task_threads(int32_t task_threads,
+    ecs_os_api_thread_new_t task_worker_new,
+    ecs_os_api_thread_join_t task_worker_join) const;
+
+/** Returns true if task thread use has been requested.
+ * @see ecs_using_task_threads
+ */
+bool using_task_threads() const;
+
 /** @} */

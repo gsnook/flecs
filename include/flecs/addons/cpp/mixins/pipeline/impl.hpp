@@ -91,4 +91,14 @@ inline int32_t world::get_threads() const {
     return ecs_get_stage_count(m_world);
 }
 
+inline void world::set_task_threads(int32_t task_threads,
+    ecs_os_api_thread_new_t task_worker_new,
+    ecs_os_api_thread_join_t task_worker_join) const {
+    ecs_set_task_threads(m_world, task_threads, task_worker_new, task_worker_join);
+}
+
+inline bool world::using_task_threads() const {
+    return ecs_using_task_threads(m_world);
+}
+
 }
